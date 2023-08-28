@@ -21,7 +21,14 @@ public class TrafiklabApplication {
 		LinesController controller = new LinesController();
 		Lines = controller.getBiggestLines();
 
-		System.out.println(controller.PrettyPrintConsole(Lines));
+		if(Lines.isEmpty())
+		{
+			System.out.println("Error when fetching data");
+		}
+		else
+		{
+			System.out.println(controller.PrettyPrintConsole(Lines));
+		}
 	}
 
 }
