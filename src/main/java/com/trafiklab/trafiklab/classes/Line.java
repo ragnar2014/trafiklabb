@@ -40,7 +40,7 @@ public class Line implements Comparable<Line> {
 
         for (var v : StopPointList)
         {
-            allStops.append(v.getStopPointName()).append("\n");
+            allStops.append(v.getJourneyPatternPointNumber()).append(" ").append(v.getStopPointName()).append("\n");
         }
 
         return allStops.toString();
@@ -51,7 +51,7 @@ public class Line implements Comparable<Line> {
 
         for (var v : StopPointList)
         {
-            allStops.append(v.getStopPointName()).append("<br>");
+            allStops.append(v.getJourneyPatternPointNumber()).append(" ").append(v.getStopPointName()).append("<br>");
         }
 
         return allStops.toString();

@@ -12,4 +12,9 @@ public class StopPoint {
         return StopPointName;
     }
 
+    public String getJourneyPatternPointNumber()
+    {
+        return JourneyPatternPointNumber;
+    }
+
 }
