@@ -22,9 +22,6 @@ public class Line implements Comparable<Line> {
     {
         return StopPointList.size();
     }
-    public String getDirectionCode() {
-        return DirectionCode;
-    }
 
     public String getLineNumber()
     {

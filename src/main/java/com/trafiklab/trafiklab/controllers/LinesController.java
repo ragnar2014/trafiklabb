@@ -74,7 +74,6 @@ public class LinesController {
             StopPointsMap.put(stop.get("StopPointNumber"), stop.get("StopPointName"));
         }
 
-
         Line tempLine = new Line();
 
         for(int i =0; i < LinesResponse.size(); i ++)
@@ -91,7 +90,6 @@ public class LinesController {
                 StopPoint tempStopPoint = new StopPoint(tempLineMap.get("JourneyPatternPointNumber"), StopPointName);
                 Lines.get(index).AddStopPoint(tempStopPoint);
             }
-
             else
             {
                 //Är vi på samma linje? I så fall ska vi bara lägga till ny stoppoint
@@ -160,6 +158,5 @@ public class LinesController {
 
         return printout.toString();
     }
-
 
 }
