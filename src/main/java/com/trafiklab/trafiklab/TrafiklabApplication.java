@@ -21,7 +21,7 @@ public class TrafiklabApplication {
 		LinesController controller = new LinesController();
 		Lines = controller.getBiggestLines();
 
-		System.out.println(controller.getNr1LineWithStops(Lines));
+		System.out.println(controller.PrettyPrintConsole(Lines));
 	}
 
 }
