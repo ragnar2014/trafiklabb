@@ -1,3 +1,7 @@
+//2023-08-29
+//David Nilsson Löfvall
+//Åt SBAB
+
 package com.trafiklab.trafiklab;
 
 import com.trafiklab.trafiklab.classes.Line;
