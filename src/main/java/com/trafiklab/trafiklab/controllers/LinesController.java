@@ -32,8 +32,9 @@ public class LinesController {
         RestTemplate template = new RestTemplate();
 
         //Detta är ju inte snyggt men tror jag täcker möjliga felen i denna hantering
-        /////////////////Lines/////////////////////////////////////////////////////////////////////////
-        try {
+//////////////////////Lines/////////////////////////////////////////////////////////////////////////////////////////////
+        try
+        {
             LineObjects = new Object[]{template.getForObject(LineStopEndPoint, Object.class)};
             outerHashMap = (Map<String, Object>) LineObjects[0];
             if(outerHashMap != null && outerHashMap.containsKey("ResponseData"))
@@ -52,39 +53,44 @@ public class LinesController {
             {
                 throw new Exception("outerHashmap is null or doesn't contain ResponseData");
             }
-
-            //////////////////StopPoints/////////////////////////////////////////////////////////////////
-            Object[] StopObjects = new Object[]{template.getForObject(StopPoinEndpoint, Object.class)};
-            outerHashMap = (Map<String, Object>) StopObjects[0];
-
-            if(outerHashMap != null && outerHashMap.containsKey("ResponseData"))
-            {
-                responseDataMap = (Map<String, Object>) outerHashMap.get("ResponseData");
-                if(responseDataMap != null && responseDataMap.containsKey("Result"))
-                {
-                    Stops = (ArrayList<Map<String, String>>) responseDataMap.get("Result");
-                }
-                else
-                {
-                    throw new Exception("No Result in Stops");
-                }
-            }
-            else
-            {
-                throw new Exception("outerHashmap is null or doesn't contain ResponseData");
-            }
         }
         catch (ClassCastException e)
         {
-            throw new Exception("Unable to fetch data");
+            throw new Exception("Unable to fetch data for Lines");
         }
-        catch (Exception e) {
-            throw new RuntimeException(e);
+
+/////////////////////StopPoints///////////////////////////////////////////////////////////////////////////////
+         try
+         {
+             Object[] StopObjects = new Object[]{template.getForObject(StopPoinEndpoint, Object.class)};
+             outerHashMap = (Map<String, Object>) StopObjects[0];
+
+             if (outerHashMap != null && outerHashMap.containsKey("ResponseData"))
+             {
+                 responseDataMap = (Map<String, Object>) outerHashMap.get("ResponseData");
+                 if (responseDataMap != null && responseDataMap.containsKey("Result"))
+                 {
+                     Stops = (ArrayList<Map<String, String>>) responseDataMap.get("Result");
+                 }
+                 else
+                 {
+                     throw new Exception("No Result in Stops");
+                 }
+             }
+             else
+             {
+                 throw new Exception("outerHashmap is null or doesn't contain ResponseData");
+             }
+         }
+        catch (Exception e)
+        {
+            throw new Exception("Unable to fetch data for Stop points");
         }
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //Lagrar alla hållplatser i Map för att lätta kunna hitta rätt
-        for (var stop : Stops) {
-
+        for (var stop : Stops)
+        {
             StopPointsMap.put(stop.get("StopPointNumber"), stop.get("StopPointName"));
         }
 

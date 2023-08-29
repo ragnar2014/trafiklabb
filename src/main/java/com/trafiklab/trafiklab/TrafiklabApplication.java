@@ -20,7 +20,6 @@ public class TrafiklabApplication {
 		SpringApplication.run(TrafiklabApplication.class, args);
 		LinesController controller = new LinesController();
 		Lines = controller.getBiggestLines();
-
 		if(Lines.isEmpty())
 		{
 			System.out.println("Error when fetching data");
