@@ -4,8 +4,6 @@ import com.trafiklab.trafiklab.classes.Line;
 import com.trafiklab.trafiklab.controllers.LinesController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,7 +14,7 @@ public class TrafiklabApplication {
 
 	public static void main(String[] args)
 	{
-		List<Line> Lines = new ArrayList<>();
+		List<Line> Lines;
 		SpringApplication.run(TrafiklabApplication.class, args);
 		LinesController controller = new LinesController();
 		Lines = controller.getBiggestLines();
