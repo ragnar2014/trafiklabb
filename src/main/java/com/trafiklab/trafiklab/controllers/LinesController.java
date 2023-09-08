@@ -16,7 +16,7 @@ public class LinesController {
 
     //Endpoints
     final String LineStopEndPoint = "https://api.sl.se/api2/LineData.json?model=JourneyPatternPointOnLine&key=" + key+ DefaultTransMode;
-    final String StopPoinEndpoint = "https://api.sl.se/api2/LineData.json?model=StopPoint&StopPointName=Stadshagsplan&key="+key;
+    final String StopPoinEndpoint = "https://api.sl.se/api2/LineData.json?model=StopPoint&key="+key;
 
     @GetMapping("/listLines")
     public List<Line> getLines() throws Exception
